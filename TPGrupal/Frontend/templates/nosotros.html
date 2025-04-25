@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block head_title %}Nosotros - Hotel del Glaciar{% endblock %}
+
+{% block links_head %} <link rel="stylesheet" href="{{url_for('static', filename='css/nosotros.css',_external=True)}}"> {% endblock %}
+
+<!-- Contenido principal -->
+{% block body_content %}
+<div class="body-bg">
+    <div class="about">
+        <div class="container-fluid">
+            <!-- Sección 1 -->
+            <div class="row mt-5"> <!-- Agregamos la clase mt-5 para un margen superior adicional -->
+                <div class="col-md-5">
+                    <div class="titlepage card-style">
+                        <h2>Historia y Legado</h2>
+                        <p class="margin_0">
+                            En el Hotel Glacial Ushuaia, nuestra historia se entrelaza con el legado de Tierra del Fuego. Desde nuestros modestos comienzos como una posada familiar hace más de dos décadas, hemos sido un faro de hospitalidad en el extremo sur del mundo. <br>
+                            Fundado por la familia González con una visión clara de ofrecer una experiencia auténtica, hemos evolucionado hacia un destino internacional sin perder nuestras raíces. Cada visita es un tributo a nuestra historia, conectando a nuestros huéspedes con la rica herencia de la región.
+                        </p>
+                        </div>
+                    </div>
+                <div class="col-md-7">
+                    <div class="about_img card-style">
+                        <figure>
+                            <img src="{{ url_for('static', filename='imgs/hotel_nosotros_5.jpeg') }}" alt="Imagen 1">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 2 -->
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="about_img card-style">
+                        <figure>
+                            <img src="{{ url_for('static', filename='imgs/hotel_nosotros_2.jpeg') }}" alt="Imagen 2">
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="titlepage card-style">
+                        <h2>Fundamentos</h2>
+                        <p class="margin_0">
+                            Nos guía nuestra dedicación a la excelencia, al esforzarnos por superar las expectativas de nuestros huéspedes en cada interacción, ofreciendo un servicio impecable y experiencias inolvidables en cada momento de su estadía.<br>
+                            Celebramos la diversidad, ofreciendo a nuestros huéspedes una experiencia verdaderamente única que refleja la riqueza cultural de la región.<br>
+                            Somos un miembro activo y solidario de la comunidad local, apoyando iniciativas sociales y contribuyendo al desarrollo económico y cultural.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 3 -->
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="titlepage card-style">
+                        <h2>Compromiso</h2>
+                        <p class="margin_0">
+                            En el Hotel del Glacial Ushuaia, la conservación del entorno es fundamental. Nos comprometemos a proteger y preservar la belleza natural de Tierra del Fuego, adoptando prácticas sostenibles que minimicen nuestro impacto ambiental. <br>
+                            Cada acción refleja nuestro respeto por la naturaleza única de nuestra ubicación, asegurando que las generaciones futuras puedan disfrutar de este tesoro como lo hacen nuestros huéspedes hoy.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="about_img card-style">
+                        <figure>
+                            <img src="{{ url_for('static', filename='imgs/hotel_nosotros_3.jpeg') }}" alt="Imagen 3">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 4 -->
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="about_img card-style">
+                        <figure>
+                            <img src="{{ url_for('static', filename='imgs/hotel_nosotros_4.jpeg') }}" alt="Imagen 4">
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="titlepage card-style">
+                        <h2>Visión</h2>
+                        <p class="margin_0">
+                            Aspiramos a ser reconocidos como el destino líder en el extremo sur del mundo, donde los viajeros descubren la magia de Tierra del Fuego mientras disfrutan de un alojamiento de clase mundial y experiencias excepcionales. <br> 
+                            Soñamos con inspirar y enriquecer a nuestros visitantes, siendo un modelo de excelencia en hospitalidad sostenible, elevar los estándares y crear un impacto positivo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección 5 -->
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="titlepage card-style">
+                        <h2>Misión</h2>
+                        <p class="margin_0">
+                            Nuestra misión es combinar la belleza natural de Tierra del Fuego con lujo, comodidad y autenticidad. <br>
+                            En cada detalle, desde el mate amargo de bienvenida hasta el fogón de despedida, nos esforzamos por ofrecer un servicio excepcional y una hospitalidad genuina. <br>
+                            Que cada huésped experimente la esencia única de estas mágicas tierras, y se lleve consigo los recuerdos de un viaje transformador.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="about_img card-style">
+                        <figure>
+                            <img src="{{ url_for('static', filename='imgs/hotel_nosotros_1.jpeg') }}" alt="Imagen 1">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}    

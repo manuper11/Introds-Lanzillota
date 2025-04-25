@@ -1,0 +1,42 @@
+
+{% if reviews %}
+  <section id="reviews-container" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+          {% for review in reviews %}
+              <li data-target="#reviews-container" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %}"></li>
+          {% endfor %}
+      </ol>
+      
+      <section class="carousel-inner">
+          {% for review in reviews %}
+          <section class="carousel-item {% if loop.first %}active{% endif %}">
+              <div class="comment-box">
+                  <h4 class="comentarios">{{ review.texto }}</h4>
+                  <p class="autor-comentario">{{ review.nombre_autor }}</p>
+              </div>
+          </section>
+          {% endfor %}
+      </section>
+      
+      <a class="carousel-control-prev" href="#reviews-container" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#reviews-container" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </section>    
+{% else %}
+  <div class="row justify-content-center my-3">
+    <div class="col-6">
+      <div class="card bg-dark my-3 my-md-0">
+          <div class="card-body text-center">
+            <h5 class="card-title">No hay reseñas disponibles</h5>
+            <p class="card-text">¡Sé el primero en dejar una reseña!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

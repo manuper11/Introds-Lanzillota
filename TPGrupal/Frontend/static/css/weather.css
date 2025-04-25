@@ -1,0 +1,157 @@
+/* CSS WEATHER WIDGET */	
+
+
+#widget {
+    width: 25vw;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    border-radius: 20px;
+    max-width: 350px;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.33s ease;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+}
+
+#widget.colapsado {
+    overflow: hidden;
+    padding: 5px 30px;
+    max-width: 250px;
+    min-width: 200px;
+}
+
+#widget.colapsado .climaActual {
+    max-height: 40px;
+    overflow: hidden;
+}
+
+#widget.colapsado h1 {
+    font-size: 30px;
+    margin: 0px;
+}
+
+#widget.colapsado img {
+    width: 30px;
+}
+
+#widget.colapsado .header-dia, #widget.colapsado .detalles, #widget.colapsado .forecast-container {
+    display: none;
+}
+
+#widget.expandido {
+    padding: 15px 10px;
+    z-index: 1000;
+    min-width: 300px;
+}
+
+#widget.expandido #clima_actual_icon, #widget.expandido #temperatura {
+    min-width: 3vw;
+    font-size: 55px;
+}
+
+.header-dia {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+.header-dia h1 {
+    font-size: 30px;
+}
+
+#ciudad {
+    font-size: 25px;
+}
+
+.climaActual {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0px 10px;
+}
+
+#clima_actual_icon {
+	width: 50px;
+    margin-right: 10px;
+}
+
+.clima h1 {
+	font-size: 60px;
+    padding-right: 10px;
+}
+
+.clima h2 {
+	font-size: 20px;
+    font-weight: 900;
+    padding-right: 10px;
+}
+
+.detalles{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(130, 243, 211, 0.15);    
+    border-radius: 10px;
+}
+
+.columna {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 60px;
+    margin: 5px;
+}
+
+.columna section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.columna img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.columna p {
+    display: flex;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.forecast-container section {
+    width: 100%;
+    height: 135px;
+    justify-content: space-between;
+    background: rgba(130, 243, 211, 0.15);    
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.forecast-container p {
+    margin-top: 10px;
+    font-size: 10px;
+    margin-bottom: -10px;
+}
+
+.forecast-container h1 {
+    font-size: 15px;
+    text-align: center;
+    padding-left: 10%;
+    margin-top: 10px;
+}
+
+#forecast_actual_icon, #forecast_icon_1, #forecast_icon_2, #forecast_icon_3, #forecast_icon_4 {
+    width: 30px;
+    padding-top: 5px;
+}

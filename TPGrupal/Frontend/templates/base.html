@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with FoodHut landing page.">
+    <title>{% block head_title %}Hotel del Glaciar{% endblock %}</title>
+   
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{url_for('static', filename='vendors/themify-icons/css/themify-icons.css')}}">
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='vendors/animate/animate.css')}}">
+
+    <!-- Bootstrap + main styles -->
+	<link rel="stylesheet" href="{{url_for('static', filename='css/mate_amargo.css')}}">
+
+    <!-- Widget Stylesheet -->
+<link rel="stylesheet" href="{{url_for('static', filename='css/weather.css',_external=True)}}" />
+
+    {% block links_head %} {% endblock %}
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    
+    <!-- Navbar -->
+    <nav class="custom-navbar navbar navbar-expand-lg navbar-dark fixed-top" data-spy="affix" data-offset-top="10">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('indexBp.home')}}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('servicios')}}">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('habitacionesBp.habitaciones')}}">Habitaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('reservasBp.reserva')}}">Reserva</a>
+                </li>
+                <li class="nav-item">
+                    {% include 'weather.html' %}
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('nosotrosBp.nosotros')}}">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('reviewsBp.reviews')}}">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('contactoBp.contacto')}}">Contactenos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{url_for('adminBp.admin')}}" class="btn btn-primary ml-xl-4">Administracion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- header -->
+    <header id="home" class="header">
+        {% block header %} 
+        {% endblock %}
+    </header>
+
+    <!-- Main Content -->
+    {% block body_content %}
+    {% endblock %}
+
+    <!-- page footer  -->
+    <div class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>CONTACTANOS</h3>
+                <P class="text-muted">alojamiento.ids@gmail.com</P>
+            </div>
+            <div class="col-sm-4">
+                <h3>LLAMANOS</h3>
+                <P class="text-muted">02901 42-5329</P>
+            </div>
+            <div class="col-sm-4">
+                <h3>ENCONTRANOS</h3>
+                <P class="text-muted">Luis Fernando Martial 2355, V9410 Ushuaia, Tierra del Fuego</P>
+            </div>
+        </div>
+    </div>
+    
+
+  
+    <!-- end of page footer -->
+
+	<!-- core  -->
+    <script src="{{url_for('static', filename='vendors/jquery/jquery-3.4.1.js')}}"></script>
+    <script src="{{url_for('static', filename='vendors/bootstrap/bootstrap.bundle.js')}}"></script>
+
+    <!-- bootstrap affix -->
+    <script src="{{url_for('static', filename='vendors/bootstrap/bootstrap.affix.js')}}"></script>
+
+    <!-- wow.js -->
+    <script src="{{url_for('static', filename='vendors/wow/wow.js')}}"></script>
+    
+    <!-- google maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+
+    <!-- Mate_amargo js -->
+    <script src="{{url_for('static', filename='js/mate_amargo.js')}}"></script>
+
+    <!-- Widget Animation js -->
+    <script src="{{url_for('static', filename='js/weatherAnimation.js',_external=True)}}"></script>
+    
+    <!-- Weather data js -->
+    <script src="{{url_for('static', filename='js/weatherAPI.js',_external=True)}}"></script>
+    <!-- Scripts block -->
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>

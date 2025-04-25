@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+
+{% block head_title %} 404 - Pagina no encontrada{% endblock %}
+
+{% block header %} 
+    <div class="overlay text-white text-center">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="overlay text-white text-center">
+                <h1 class="display-2 font-weight-bold my-3">Error 404</h1>
+                <h2 class="display-4 mb-5">Lo sentimos! La pagina a la que quiere acceder no existe</h2>
+                <a href="{{url_for('indexBp.home')}}" class="btn btn-lg btn-primary" >VOLVER</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

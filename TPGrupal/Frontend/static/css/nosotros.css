@@ -1,0 +1,54 @@
+/* Estilos para la sección "Nosotros" */
+
+.body-bg {
+    background: url('../imgs/fondo_nosotros.jpeg') no-repeat center center fixed; 
+    background-size: cover;
+    position: relative;
+    padding: 50px 0; 
+    padding-top: 150px;
+  
+}
+
+.body-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+.about {
+    padding: 0 15px; 
+}
+
+.about .titlepage,
+.about .about_img {
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: #010c1b;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.about .titlepage h2,
+.about .titlepage p {
+    color: #ffffff; 
+}
+
+.about .about_img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.about .row {
+    align-items: center; 
+}
+
+
+.header {
+    display: none;
+}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block head_title %}Checkout - Hotel del Glaciar{% endblock %}
+
+{% block header %}
+    <div class="overlay text-white text-center">
+        <h1 class="display-2 font-weight-bold my-3">Hotel del Glaciar</h1>
+        <h2 class="display-4 mb-5">Complete su reserva</h2>
+        <p class="h3">Estás a solo un paso de completar la reserva</p>
+    </div>
+{% endblock %}
+
+{% block body_content %}
+    <div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="checkout-form">
+        <div class="container">
+            <h2 class="section-title mb-5">Revisa toda la informacion antes de reservar</h2>
+            {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+            {% endwith %}
+            <div class="card text-dark mb-4">
+                <div class="card-header">
+                    <h3>Detalles de la Reserva</h3>
+                </div>
+                <div class="card-body">
+                    <p><i class="fas fa-calendar-alt"></i> <strong>Entrada:</strong> {{ fecha_desde }}</p>
+                    <p><i class="fas fa-calendar-alt"></i> <strong>Salida:</strong> {{ fecha_hasta }}</p>
+                    <p><i class="fas fa-bed"></i> <strong>Tipo de Habitación:</strong> {{ habitacion_nombre }}</p>
+                    <p><i class="fas fa-bed"></i> <strong>Cantidad de Habitaciones:</strong> {{ cantidad_habitaciones }}</p>
+                    <p><i class="fas fa-users"></i> <strong>Cantidad de Personas:</strong> {{ cantidad_personas }}</p>
+                    <p><i class="fas fa-dollar-sign"></i> <strong>Precio Total:</strong> ${{ precio_total }}</p>
+                </div>
+            </div>
+            <form id="form_checkout" method="post" action="{{ url_for('reservasBp.checkout_reserva') }}">
+                <div class="row mb-5 justify-content-center">
+                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                        <label for="email_cliente">Email</label>
+                        <input type="email" id="email_cliente" name="email_cliente" class="form-control form-control-lg" placeholder="Email" required>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                        <label for="nombre_cliente">Nombre</label>
+                        <input type="text" id="nombre_cliente" name="nombre_cliente" class="form-control form-control-lg" placeholder="Nombre" required>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                        <label for="telefono_cliente">Teléfono</label>
+                        <input type="text" id="telefono_cliente" name="telefono_cliente" class="form-control form-control-lg" placeholder="Teléfono">
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-xs-12 my-2">
+                        <label for="metodo_pago">Método de Pago</label>
+                        <select id="metodo_pago" name="metodo_pago" class="form-control form-control-lg" required>
+                            <option value="" disabled selected>Método de pago</option>
+                            <option value="Tarjeta de Crédito">Tarjeta de crédito</option>
+                            <option value="PayPal">PayPal</option>
+                            <option value="Transferencia Bancaria">Transferencia bancaria</option>
+                        </select>
+                    </div>
+                </div>
+            
+                <input type="hidden" name="fecha_desde" value="{{ fecha_desde }}">
+                <input type="hidden" name="fecha_hasta" value="{{ fecha_hasta }}">
+                <input type="hidden" name="cantidad_habitaciones" value="{{ cantidad_habitaciones }}">
+                <input type="hidden" name="cantidad_personas" value="{{ cantidad_personas }}">
+                <input type="hidden" name="habitacion_id" value="{{ habitacion_id }}">
+                <input type="hidden" name="precio_total" value="{{ precio_total }}">
+            
+                <div class="row justify-content-center mt-4">
+                    <div class="col-12">
+                        <h3 class="text-light">Precio total: ${{ precio_total }}</h3>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-lg btn-primary" id="rounded-btn">Reservar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="module" src="{{ url_for('static', filename='js/checkout_reserva.js') }}"></script>
+    <script src="https://kit.fontawesome.com/ff9470bcef.js" crossorigin="anonymous"></script>
+
+{% endblock %}

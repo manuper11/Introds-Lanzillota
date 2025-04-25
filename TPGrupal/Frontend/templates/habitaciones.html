@@ -1,0 +1,42 @@
+ {% extends 'base.html' %}
+
+{% block head_title %}Habitaciones{% endblock %}
+
+{% block links_head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/habitaciones.css')}}">
+{% endblock %}
+
+{% block header %}
+<div class="overlay text-white">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 py-5 my-5">
+            <br>
+            <h2 class="text-center">Descubre las habitaciones de nuestro hotel</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_content %}
+
+
+<div class="container-fluid">
+    <h2 class="h4 h-md-3 my-5 text-center border border-top p-3">Habitaciones</h2>
+    <div class="row">
+        {% for habitacion in habitaciones %}
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card habitacion-card bg-dark text-center">
+                    <img class="card-img-top habitacion-img" src="{{ url_for('static', filename='imgs/' ~ habitacion.url_imagen) }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ url_for('habitacionesBp.habitaciones_id', id=habitacion.id) }}">{{ habitacion.nombre }}</a></h5>
+                        <p class="card-text">{{ habitacion.descripcion }}</p>
+                        <p class="card-text"><small class="text-muted">Cupos de personas: {{ habitacion.personas_max }}</small></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

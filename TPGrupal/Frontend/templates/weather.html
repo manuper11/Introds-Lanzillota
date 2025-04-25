@@ -1,0 +1,63 @@
+<!-- widget -->
+<section id="widget" class="colapsado">
+    <section class="header-dia">
+        <h1>
+            HOY
+        </h1>
+        <h2 id="ciudad"> --- </h2> 
+    </section>
+    <section class="clima">
+        <section class="climaActual">
+            <img id="clima_actual_icon" src="{{ url_for('static', filename='/imgs/dia-nublado.jpg', _external=True) }}">
+            <h1 id="temperatura">15 ºC</h1>
+        </section>  
+        <section class="detalles">
+            <section class="columna">
+                <section>
+                    <img src="{{ url_for('static', filename='/imgs/humedad.jpg', _external=True) }}">
+                    <p id="humedad"></p>
+                </section>
+                <p>Humedad</p>
+            </section>
+            <section class="columna">
+                <section>
+                    <img src="{{ url_for('static', filename='/imgs/velocidad_viento.jpg', _external=True) }}">
+                    <p id="velocidad_viento"></p>
+                </section>
+                <p>Velocidad del Viento</p>
+            </section>
+        </section>
+        <section class="forecast-container">
+            <section>
+                <h1 id="hoy">Hoy</h1>
+                <img src="{{ url_for('static', filename='/imgs/dia-nublado.jpg', _external=True) }}" id="forecast_actual_icon">
+                <p id="temperatura_minima_hoy"> --- </p>
+                <p id="temperatura_maxima_hoy"> --- </p>
+            </section>
+            <section>
+                <h1 id="dia_1">Dia</h1>
+                <img src="{{ url_for('static', filename='/imgs/dia-nublado.jpg', _external=True) }}" id="forecast_icon_1">
+                <p id="temperatura_minima_1"> --- </p>
+                <p id="temperatura_maxima_1"> --- </p>
+            </section>
+            <section>
+                <h1 id="dia_2">Dia</h1>
+                <img src="{{ url_for('static', filename='/imgs/dia-nublado.jpg', _external=True) }}" id="forecast_icon_2">
+                <p id="temperatura_minima_2"> --- </p>
+                <p id="temperatura_maxima_2"> --- </p>
+            </section>
+            <section>
+                <h1 id="dia_3">Dia</h1>
+                <img src="{{ url_for('static', filename='/imgs/dia-nublado.jpg', _external=True) }}" id="forecast_icon_3">
+                <p id="temperatura_minima_3"> --- </p>
+                <p id="temperatura_maxima_3"> --- </p>
+            </section>
+            <section>
+                <h1 id="dia_4">Dia</h1>
+                <img src="{{ url_for('static', filename='/imgs/dia-nublado.jpg', _external=True) }}" id="forecast_icon_4">
+                <p id="temperatura_minima_4"> --- </p>
+                <p id="temperatura_maxima_4"> --- </p>
+            </section>
+        </section>
+    </section>
+</section>

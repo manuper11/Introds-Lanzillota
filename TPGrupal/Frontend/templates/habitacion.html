@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Habitaciones{% endblock %}
+
+{% block links_head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/habitaciones.css')}}">
+{% endblock %}
+
+{% block header %}
+<div class="overlay text-white">
+    <div class="row justify-content-center">
+        <div class="col-sm-8 py-5 my-5">
+            <br>
+            <h2 class="text-center">Descubre la comodidad de nuestras habitaciones</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block body_content %}
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-sm-12  justify-content-center">
+            <div class="card habitacion-card bg-dark text-center p-3 my-5">
+                <img class="card-img-top una-habitacion-img" src="{{ url_for('static', filename='imgs/' ~ habitacion.url_imagen) }}" alt="Card image cap">
+                <div class="card-body">
+                        <h5 class="card-title">{{ habitacion.nombre }}</h5>
+                        <p class="card-text">{{ habitacion.descripcion }}</p>
+                        <p class="card-text"><small class="text-muted">Cupos de personas: {{ habitacion.personas_max }}</small></p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-12 my-1 justify-content-center">
+            <h2 class="h4 h-md-3 my-md-5 text-center border border-top p-3">Hace tu reserva hoy</h2>
+            <p class="text-center">Precio por noche: ${{ habitacion.precio_noche }}</p>
+            <div class="text-center mt-md-5 mb-2"><a href="{{ url_for('reservasBp.reserva') }}"><button class="btn-success p-2">RESERVAR</button></a></div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

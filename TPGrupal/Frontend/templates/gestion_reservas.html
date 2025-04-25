@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block head_title %}Gestion de reservas{% endblock %}
+
+{% block links_head %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/gestion_reservas.css')}}">
+
+{% endblock %}
+
+{% block header %}
+<div class="overlay text-white text-center">
+    <h1 class="display-2 font-weight-bold my-3">Administracion</h1>
+    <h2 class="display-4 mb-5">Gestion de Reservas</h2>
+</div>
+{% endblock %}
+
+{% block body_content %}
+<div id="contenedor-reservas" class="container my-5">
+    <h2 class="text-center mb-4">Gestión de Reservas</h2>
+    
+
+    <div class="card mb-4 text-dark">
+        <div class="card-header">
+            <h4 class="mb-0" data-toggle="collapse" href="#reservasActivas" role="button" aria-expanded="false" aria-controls="reservasActivas">Reservas Activas</h4>
+        </div>
+        <div id="reservasActivas" class="collapse show">
+            <div class="card-body">
+                <table id="activasTable" class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Cant. Habitaciones</th>
+                            <th>Personas</th>
+                            <th>Habitación</th>
+                            <th>Pago</th>
+                            <th>Precio Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reserva in reservas_activas %}
+                        <tr>
+                            <td>{{ reserva.nombre_cliente }}</td>
+                            <td class="fecha">{{ reserva.fecha_desde }}</td>
+                            <td class="fecha">{{ reserva.fecha_hasta }}</td>
+                            <td>{{ reserva.cantidad_habitaciones }}</td>
+                            <td>{{ reserva.cantidad_personas }}</td>
+                            <td>{{ reserva.tipo_habitacion }}</td>
+                            <td>{{ reserva.metodo_pago }}</td>
+                            <td>{{ reserva.precio_total }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="accionesMenu">
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#informacionContactoModal" data-id="{{ reserva.id }}" data-email="{{ reserva.email_cliente }}" data-telefono="{{ reserva.telefono_cliente }}">Información de contacto</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4 text-dark">
+        <div class="card-header">
+            <h4 class="mb-0" data-toggle="collapse" href="#proximasReservas" role="button" aria-expanded="false" aria-controls="proximasReservas">Reservas Próximas</h4>
+        </div>
+        <div id="proximasReservas" class="collapse show">
+            <div class="card-body">
+                <table id="proximasTable" class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Cant. Habitaciones</th>
+                            <th>Personas</th>
+                            <th>Habitación</th>
+                            <th>Pago</th>
+                            <th>Precio Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reserva in reservas_proximas %}
+                        <tr>
+                            <td>{{ reserva.nombre_cliente }}</td>
+                            <td class="fecha">{{ reserva.fecha_desde }}</td>
+                            <td class="fecha">{{ reserva.fecha_hasta }}</td>
+                            <td>{{ reserva.cantidad_habitaciones }}</td>
+                            <td>{{ reserva.cantidad_personas }}</td>
+                            <td>{{ reserva.tipo_habitacion }}</td>
+                            <td>{{ reserva.metodo_pago }}</td>
+                            <td>{{ reserva.precio_total }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="accionesMenu">
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#informacionContactoModal" data-id="{{ reserva.id }}" data-email="{{ reserva.email_cliente }}" data-telefono="{{ reserva.telefono_cliente }}">Información de contacto</a>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#cancelarReservaModal" data-id="{{ reserva.id }}">Cancelar reserva</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4 text-dark">
+        <div class="card-header">
+            <h4 class="mb-0" data-toggle="collapse" href="#reservasRechazadas" role="button" aria-expanded="false" aria-controls="reservasRechazadas">Reservas Rechazadas</h4>
+        </div>
+        <div id="reservasRechazadas" class="collapse show">
+            <div class="card-body">
+                <table id="rechazadasTable" class="table table-bordered table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Motivo Rechazo</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Cant. Habitaciones</th>
+                            <th>Personas</th>
+                            <th>Habitación</th>
+                            <th>Pago</th>
+                            <th>Precio Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reserva in reservas_rechazadas %}
+                        <tr>
+                            <td>{{ reserva.nombre_cliente }}</td>
+                            <td>{{ reserva.motivo_rechazo }}</td>
+                            <td class="fecha">{{ reserva.fecha_desde }}</td>
+                            <td class="fecha">{{ reserva.fecha_hasta }}</td>
+                            <td>{{ reserva.cantidad_habitaciones }}</td>
+                            <td>{{ reserva.cantidad_personas }}</td>
+                            <td>{{ reserva.tipo_habitacion }}</td>
+                            <td>{{ reserva.metodo_pago }}</td>
+                            <td>{{ reserva.precio_total }}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="accionesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="accionesMenu">
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#informacionContactoModal" data-id="{{ reserva.id }}" data-email="{{ reserva.email_cliente }}" data-telefono="{{ reserva.telefono_cliente }}">Información de contacto</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para información de contacto -->
+<div class="modal fade" id="informacionContactoModal" tabindex="-1" role="dialog" aria-labelledby="informacionContactoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="informacionContactoModalLabel">Información de Contacto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Email:</strong> <span id="contactoEmail"></span></p>
+                <p><strong>Teléfono:</strong> <span id="contactoTelefono"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para cancelar reserva -->
+<div class="modal fade" id="cancelarReservaModal" tabindex="-1" role="dialog" aria-labelledby="cancelarReservaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelarReservaModalLabel">Cancelar Reserva</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="cancelarReservaForm">
+                    <div class="mb-3">
+                        <input type="hidden" id="reservaId" name="reservaId">
+                        <label for="motivoRechazo" class="form-label">Motivo del Rechazo</label>
+                        <input type="text" class="input-modal form-control form-control-lg" id="motivoRechazo" name="motivoRechazo" required>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-danger w-100">Cancelar Reserva</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script type="module" src="{{ url_for('static', filename='js/gestion_reservas.js') }}"></script>
+{% endblock %}

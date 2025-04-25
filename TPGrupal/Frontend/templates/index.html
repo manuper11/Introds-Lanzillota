@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% block head_title %}Hotel del Glaciar{% endblock %}
+
+<!-- header -->
+{% block header %}
+<div class="overlay text-white text-center">
+    <h1 class="display-2 font-weight-bold my-3">Hotel del Glaciar</h1>
+    <h2 class="display-4 mb-5">Descubre la calidez de tu hogar en el mejor hotel de la Patagonia</h2>
+    <a class="btn btn-lg btn-primary" href="{{url_for('reservasBp.reserva')}}">Realizar una reserva ahora</a>
+</div>
+{% endblock %}
+
+<!-- Main Content -->
+{% block body_content %}
+<div class="container-fluid">
+    <!--  About Section  -->
+    <br>
+    <br>
+    <br>
+    <div id="about" class="container-fluid wow fadeIn" id="about" data-wow-duration="1.5s">
+        <div class="row">
+            <div class="col-lg-6 has-img-bg"><a href="{{url_for('static',filename='imgs/imagen-hotel-index.jpg')}}"></a></div>
+            <div class="col-lg-6">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 py-5 my-5">
+                        <h2 class="mb-4">Sobre nuestro hotel</h2>
+                        <br>
+                        <h5>Ubicado majestuosamente en el corazón de Ushuaia, el Hotel del Glaciar es un refugio de lujo entre las imponentes montañas y los serenos paisajes naturales de la región. Con una arquitectura que combina elegancia moderna y elementos tradicionales de la Patagonia, nuestro hotel ofrece una experiencia única y memorable para cada huésped.</h5>
+                        <br>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!--  About Section 2 -->
+    <div class="container-fluid wow fadeIn" data-wow-duration="1.5s">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 py-5 my-5s">
+                        <h2 class="mb-4">Porque elegir Ushuaia como destino</h2>
+                        <br>
+                        <h5>Ushuaia, en el extremo austral del mundo, ofrece una combinación única de paisajes impresionantes y aventuras emocionantes. Desde explorar glaciares y navegar por el canal Beagle hasta descubrir la cultura fueguina, cada momento en Ushuaia promete una experiencia inolvidable en un entorno natural espectacular.</h5>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 has-img-bg2"><a href="{{url_for('static',filename='imgs/about-section2.jpg')}}"></a></div>
+        </div>
+    </div>
+
+
+     <div id="blog" class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+        <div class="row justify-content-center">
+    
+        </div>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="foods" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card bg-transparent border my-3 my-md-0">
+                            <img src="{{url_for('static', filename='imgs/about-ushuaia1.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h1 class="text-center mb-4">La ciudad de Ushuaia</h1>
+                                <p class="text-white"> Ushuaia, la ciudad al fin del mundo, se anida entre montañas y el mar, ofreciendo un paisaje urbano pintoresco y vibrante. Sus calles coloridas y su ambiente acogedor contrastan con la imponente naturaleza que la rodea, invitando a explorar tanto la ciudad como los paisajes naturales únicos de Tierra del Fuego.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-transparent border my-3 my-md-0">
+                            <img src="{{url_for('static', filename='imgs/about-ushuaia2.jpg')}}" class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h1 class="text-center mb-4">Los paisajes de Ushuaia</h1>
+                                <p class="text-white">Ushuaia emerge entre montañas nevadas y el canal Beagle, pintando un paisaje vibrante con casas coloridas que se destacan contra el verdor de la vegetación y el azul del mar. Es un enclave donde la naturaleza salvaje y la vida urbana se entrelazan en perfecta armonía, creando un escenario único en el extremo austral del mundo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-transparent border my-3 my-md-0">
+                            <img src="{{url_for('static', filename='imgs/about-ushuaia3.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h1 class="text-center mb-4">La noche en Ushuaia</h1>
+                                <p class="text-white">Bajo el cielo estrellado, la noche envuelve el paisaje en un manto de misterio y tranquilidad. Los árboles se recortan contra el fondo oscuro, mientras las estrellas brillan como guías en el infinito. El aire fresco lleva consigo susurros de la naturaleza dormida, creando un ambiente de serenidad y magia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <!--  About Section 3 -->
+    <div  class="container-fluid wow fadeIn" data-wow-duration="1.5s">
+        <div class="row">
+            <div class="col-lg-6 has-img-bg3"><a href="{{url_for('static',filename='imgs/about-section.jpg')}}"></a></div>
+            <div class="col-lg-6">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 py-5 my-5">
+                        <h2 class="mb-4">Actividades que ofrecemos</h2>
+                        <br>
+                        <h5>Como parte de nuestro compromiso de brindar una experiencia integral, el Hotel del Glaciar ofrece una variedad de actividades gratuitas para nuestros huéspedes. Desde excursiones guiadas por los senderos cercanos hasta clases de yoga al aire libre y degustaciones de vinos regionales, hay algo para todos los gustos y edades. Además, nuestro equipo de expertos en actividades estará encantado de ayudar a organizar excursiones adicionales para explorar la belleza natural y la rica cultura de Ushuaia.</h5>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+     <!--  About Section 4 -->
+    <div class="container-fluid wow fadeIn" data-wow-duration="1.5s">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 py-5 my-5s">
+                        <h2 class="mb-4">Servicios</h2>
+                        <br>
+                        <h5>
+                            En el Hotel del Glaciar, nos esforzamos por superar las expectativas de nuestros huéspedes desde el momento en que llegan, con un equipo de recepción disponible las 24 horas para brindar una cálida bienvenida y asistencia personalizada durante toda su estadía. Nuestro centro de bienestar ofrece una amplia gama de tratamientos de spa y masajes para aquellos que buscan relajarse y rejuvenecer, mientras que nuestros restaurantes celebran los sabores locales con platos gourmet preparados con ingredientes frescos y de temporada. Además, contamos con un gimnasio completamente equipado, una piscina cubierta climatizada y jacuzzi para mantenerse en forma y relajarse después de un día de aventuras.
+                        </h5>
+                        <br>
+                        <a href="{{url_for('servicios')}}" class="btn btn-lg btn-primary" >SERVICIOS</a>
+                    </div>
+                </div>
+            </div>
+             <div class="col-lg-6 has-img-bg4"><a href="{{url_for('static',filename='imgs/about-section4.jpg')}}"></a></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div id="testmonial" class="container-fluid wow fadeIn bg-dark text-light has-height-lg middle-items">
+        <div class="row mt-3 mb-5">
+            <div class="col-md-4 my-3 my-md-0">
+                <div class="testmonial-card">
+                    <div class="card bg-transparent border my-3 my-md-0">
+                        <img src="{{url_for('static', filename='imgs/servicio-6.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                    </div>
+                    <br>
+                    <h3 class="testmonial-title">Gimnasio</h3>
+                    <div class="testmonial-body">
+                        <p>El gimnasio del Hotel del Glaciar en Ushuaia ofrece un espacio moderno y bien equipado con vistas panorámicas de los glaciares circundantes. Equipado con equipos de última generación, es ideal para mantenerse en forma durante tu estadía en este impresionante destino.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 my-3 my-md-0">
+                <div class="testmonial-card">
+                    <div class="card bg-transparent border my-3 my-md-0">
+                        <img src="{{url_for('static', filename='imgs/servicio-5.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                    </div>
+                    <br>
+                    <h3 class="testmonial-title">Sauna</h3>
+                    <div class="testmonial-body">
+                        <p>El sauna del hotel proporciona un ambiente tranquilo y rejuvenecedor después de un día de exploración en Ushuaia. Con temperaturas perfectamente reguladas, te invita a relajarte y revitalizarte en un entorno cómodo y acogedor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 my-3 my-md-0">
+                <div class="testmonial-card">
+                    <div class="card bg-transparent border my-3 my-md-0">
+                        <img src="{{url_for('static', filename='imgs/servicio-4.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                    </div>
+                    <br>
+                    <h3 class="testmonial-title">Piscina</h3>
+                    <div class="testmonial-body">
+                        <p>La piscina climatizada del Hotel del Glaciar es un lugar perfecto para disfrutar de momentos de tranquilidad y relajación. Con vistas impresionantes y una temperatura agradable, ofrece una experiencia de natación placentera en cualquier época del año.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- See all services-->
+    {% block section %}
+    {% endblock %}
+
+    <br>
+    <br>
+    <!--  About Section 5 -->
+    <div id="about" class="container-fluid wow fadeIn" id="about"data-wow-duration="1.5s">
+        <div class="row">
+            <div class="col-lg-6 has-img-bg5"><a href="{{url_for('static',filename='imgs/about-section.jpg')}}"></a></div>
+            <div class="col-lg-6">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 py-5 my-5">
+                        <h2 class="mb-4">Habitaciones</h2>
+                        <br>
+                        <h5>Nuestras habitaciones y suites están elegantemente decoradas con un toque moderno y están equipadas con comodidades de primera calidad para garantizar una estancia relajante y confortable. Con impresionantes vistas a las montañas o al mar, cada habitación es un santuario de serenidad donde los huéspedes pueden descansar y recargar energías después de un día de exploración.</h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+    <div class="gallary row">
+        {% for i in range(1, 5) %}
+        <div class="col-sm-6 col-lg-3 gallary-item wow fadeIn">
+            <img src="{{ url_for('static',filename='imgs/habitacion-' ~ i ~'.jpg') }}" class="gallary-img">
+            <a href="{{ url_for('habitacionesBp.habitaciones_id',id=i)}}" class="gallary-overlay">
+                <i class="gallary-icon ti-plus"></i>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-5">
+        <h1 class=boton_habitaciones>
+            <a href="{{url_for('habitacionesBp.habitaciones')}}" class="btn btn-lg btn-primary" >Ver Habitaciones</a>
+        </h1>
+    </div>
+
+    <!--  Reviews Section 6 -->
+
+    <div class="container-fluid reviews-section wow fadeIn" data-wow-duration="1.5s">
+        <div class="row justify-content-center" id="review-index">
+            <div class="col-sm-10 py-5">
+                <div class="reviews-header justify-content-center">
+                    <h2>Reviews</h2>
+                    <br>
+                    <h5>Conozcamos las experiencias de nuestros clientes.</h5>
+                    <br>
+                </div>
+                <div class="reviews-summary justify-content-center p-3">
+                    {% include "reviewsSummary.html" %}
+                </div>
+                <div class="reviews-button text-center mt-2">
+                    <a href="{{url_for('reviewsBp.reviews')}}" class="btn btn-lg btn-primary">
+                        <i class="fas fa-comments"></i> Ver más
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+
+{% endblock %}

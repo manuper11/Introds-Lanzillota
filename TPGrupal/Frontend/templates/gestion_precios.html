@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block head_title %}Panel de precios - Hotel del Glaciar{% endblock %}
+
+{% block links_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gestion_precios.css') }}">
+{% endblock %}
+
+{% block body_content %}
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="panel-header">
+            <h2>Panel de precios</h2>
+        </div>
+        <div class="container-custom">
+            <h3 class="title">Habitaciones</h3>
+        
+            <!-- Tabla-->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Personas</th>
+                        <th>Precio/Noche</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Con este bucle for se acomodan los datos de las habitaciones en la tabla. -->
+                    {% for habitacion in datos %}
+                        <tr>
+                            <td>{{ habitacion.nombre }}</td>
+                            <td>{{ habitacion.descripcion }}</td>
+                            <td>{{ habitacion.personas_max }}</td>
+                            <td>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>$ {{ habitacion.precio_noche }}</span>
+                                <button data-id="{{ habitacion.id }}" 
+                                        data-precio="{{ habitacion.precio_noche }}" 
+                                        class="edit-button btn btn-primary ml-1" 
+                                        data-toggle="modal" 
+                                        data-target="#editModal">Modificar
+                                </button>
+                            </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para modificar precio -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title modal-title-custom" id="editModalLabel">Modificar Precio</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm" action="{{ url_for('gestionPreciosBp.modificar_precios_habitaciones')}}" method="post">
+                        <div class="form-group">
+                            <label for="precio">Nuevo Precio</label>
+                            <input type="text" class="form-control" id="precio" name="precio_noche">
+                        </div>
+                        <input type="hidden" id="habitacionId" name="id">
+                        <div id="error-message" class="text-danger error-message">Ingresar un número válido para el precio.</div>
+                        <div class="modal-footer">
+                            <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/modal_precios.js') }}"></script>
+{% endblock %}

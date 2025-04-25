@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block head_title %}Reserva Confirmada{% endblock %}
+
+{% block header %}
+    <div class="overlay text-white text-center">
+        <h1 class="display-2 font-weight-bold my-3">¡Reserva Confirmada!</h1>
+        <h2 class="display-4 mb-5">Su código de reserva es: <strong>{{ codigo_reserva }}</strong></h2>
+        <h3 class="display-4 mb-5">En breve recibirá un correo electrónico con todos los detalles </h3>
+        <a href="{{ url_for('indexBp.home') }}" class="btn btn-primary mt-3">Volver al inicio</a>
+    </div>
+{% endblock %}

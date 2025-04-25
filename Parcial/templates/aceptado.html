@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+<body>
+    <div>
+        <p> {% for object in lista %}
+        {{object}}
+        </br>
+        {% endfor %}
+        </p>
+    </div>
+</body>
+{% endblock %}

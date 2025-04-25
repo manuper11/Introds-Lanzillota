@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C Extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+
+# mypy
+.mypy_cache/
+
+# Virtualenv
+.env
+.venv
+
+# Docker (no excluyas Dockerfile ni docker-compose.yml)
+# Los siguientes archivos son ejemplos de posibles archivos generados por Docker que podrías querer excluir
+*.log
+*.pid
+
+*.env
+
+# Anaconda
+*.conda
+*.ipynb_checkpoints
+*.nbconvert/
+
+# Editor config
+*.sublime-project
+*.sublime-workspace
+.vscode/

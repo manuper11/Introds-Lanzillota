@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+
+{% block links_head %}
+
+<script defer src="{{url_for("static", filename="js/formulario.js")}}"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+
+
+{% block header %}
+
+<div class="overlay text-white">
+    {% with messages = get_flashed_messages(category_filter=["success"]) %}
+    {% if messages %}
+        {% for msg in messages %}
+            <div id=flashwrapper class="alert alert-success alert-dismissible" role="alert">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h1 class="display-2 font-weight-bold my-3">Hotel del Glaciar</h1>
+    <h2 class="section-title py-5">Formulario de contacto</h2>
+</div>
+
+{% endblock %}
+
+
+{% block body_content %}
+
+<div class="container">
+
+    <div class="wrapper">
+
+        <div class="row no-gutters">
+
+            <div class="col-md-6 d-flex align-items-stretch">
+
+                <div class="contact-wrap w-100 p-md-5 p-4 py-5">
+
+                    <h3 class="mb-4">Escribe tus consultas</h3>
+                    
+                    <form method="POST" id="contactForm" name="contactForm" class="contactForm" onsubmit="return validateInputs();">
+                        <div class="row">
+                        
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Nombre">
+                                    <i class="fa fa-check-circle-o"></i>
+                                    <i class="fa fa-times-circle-o"></i>
+                                    <small>ERROR!</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                    <i class="fa fa-check-circle-o"></i>
+                                    <i class="fa fa-times-circle-o"></i>
+                                    <small>ERROR!</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">
+                                    <i class="fa fa-check-circle-o"></i>
+                                    <i class="fa fa-times-circle-o"></i>
+                                    <small>ERROR!</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="6" placeholder="Mensaje"></textarea>
+                                    <i class="fa fa-check-circle-o"></i>
+                                    <i class="fa fa-times-circle-o"></i>
+                                    <small>ERROR!</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                    
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 d-flex align-items-stretch">
+
+                <div class="info-wrap w-100 p-md-5 p-4 py-5 img">
+
+                    <h3>Informacion para Contactarnos</h3>
+                    <p class="mb-4">Estamos abiertos a cualquier sugerencia</p>
+
+                    <div class="dbox w-100 d-flex align-items-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-map-marker"></span>
+                        </div>
+                        <div class="text pl-3">
+                            <p><span> Direccion: </span> Luis Fernando Martial 1913 </p>
+                        </div>
+                    </div>
+
+                    <div class="dbox w-100 d-flex align-items-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-phone"></span>
+                        </div>
+                        <div class="text pl-3">
+                            <p><span> Telefono: </span> 011 5045 8900 </p>
+                        </div>
+                    </div>
+
+                    <div class="dbox w-100 d-flex align-items-center">
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <span class="fa fa-paper-plane"></span>
+                        </div>
+                        <div class="text pl-3">
+                            <p><span> Email: </span> hotel.del.glaciar@hotmail.com </p>
+                        </div>
+                    </div>
+
+                    <div class="dbox h-75 d-flex align-items-center justify-content-center">
+
+                        <div class="icon m-4 d-flex align-items-center justify-content-center">
+                            <a href="https://www.facebook.com/delglaciar">
+                                <span class="fa fa-facebook-official"></span>
+                            </a>
+                        </div>
+
+                        <div class="icon m-4 d-flex align-items-center justify-content-center">
+                            <a href="https://www.instagram.com/delglaciar/?hl=es">
+                                <span class="fa fa-instagram"></span>
+                            </a>
+                        </div>
+                        
+                        <div class="icon m-4 d-flex align-items-center justify-content-center">
+                            <a href="https://x.com/nhhotelsar">
+                                <span class="fa fa-twitter-square"></span>
+                            </a>
+                        </div>
+                    </form>
+                    
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

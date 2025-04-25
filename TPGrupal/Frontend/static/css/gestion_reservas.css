@@ -1,0 +1,21 @@
+table, tr, td, th {
+    color: #1a2535 !important
+}
+
+.table-sm td, .table-sm th {
+    padding: .3rem;
+}
+.card-body {
+    overflow-x: auto;
+}
+
+
+.modal{
+    color: #1a2535;
+}
+
+.input-modal
+{
+    color: #1a2535;
+    border: 1px solid #1a2535;
+}

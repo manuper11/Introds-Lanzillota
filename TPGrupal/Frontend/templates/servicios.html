@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block header %} 
+
+    <div class="overlay text-white text-center">
+        <h1 class="display-2 font-weight-bold my-3">Hotel del Glaciar</h1>
+        <h2 class="section-title py-5">Nuestros servicios e instalaciones</h2>
+    </div>
+{% endblock %}
+{% block body_content %}
+    <!-- Servicios  -->
+    <div id="blog" class="container-fluid bg-dark text-light py-5 text-center wow fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-sm-7 col-md-4 mb-5">
+                <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#servicios" role="tab" aria-controls="pills-home" aria-selected="true">SERVICIOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#instalaciones" role="tab" aria-controls="pills-profile" aria-selected="false">INSTALACIONES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <div id="about" class="container-fluid wow fadeIn" id="about"data-wow-duration="1.5s">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="servicios" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card bg-transparent border my-3 my-md-0">
+                            <img src="{{url_for('static', filename='imgs/servicio-1.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h2 class="pt20 pb20">Servicio de limpieza</h2>
+                                <p class="text-white">Nuestro equipo de limpieza se dedica a mantener cada rincón del hotel impecable, asegurando una estancia cómoda y placentera. Disfrute de habitaciones siempre limpias durante toda su estancia. Nos esforzamos para que disfrute plenamente de su visita.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-transparent border my-3 my-md-0">
+                            <img src="{{url_for('static', filename='imgs/room_service.jpg')}}" class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h2 class="pt20 pb20">Servicio de cuarto</h2>
+                                <p class="text-white">Disfrute de nuestro servicio a la habitación las 24 horas. Ofrecemos desayunos abundantes, almuerzos ligeros, cenas gourmet y refrigerios nocturnos, todo preparado con ingredientes frescos y de alta calidad. Nuestro equipo está listo para satisfacer sus antojos en cualquier momento del día, adaptándose a sus necesidades y garantizando una experiencia gastronómica superior sin salir de su habitación.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-transparent border my-3 my-md-0">
+                            <img src="{{url_for('static', filename='imgs/servicio-3.jpg')}}"  class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h2 class="pt20 pb20">Buffet</h2>
+                                <p class="text-white">Disfruta de nuestra variedad gastronómica en el buffet. Desde platos locales hasta cocina internacional. Nuestro buffet está diseñado para satisfacer todos los gustos, garantizando una experiencia culinaria inigualable para cada huésped.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="container-fluid wow fadeIn" data-wow-duration="1.5s">
+                <div class="row">
+                        <div class="row justify-content-center">
+                                <h3 class="pt20 pb20"><br>Tambien contamos con:</h3>
+                                        <div class="sudoku-board">
+                                            <div class="sudoku-cell">・Wi-Fi</div>
+                                            <div class="sudoku-cell">・Baño privado</div>
+                                            <div class="sudoku-cell">・Frigobar</div>
+                                            <div class="sudoku-cell">・Cable TV 75 canales</div>
+                                            <div class="sudoku-cell">・Aire Acondicionado</div>
+                                            <div class="sudoku-cell">・Estacionamiento</div>
+                                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="instalaciones" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row">
+                    <div class="col-md-4 my-3 my-md-0">
+                        <div class="card bg-transparent border">
+                            <img src="{{url_for('static', filename='imgs/servicio-4.jpg')}}" class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h2 class="pt20 pb20">Piscina</h2>
+                                <p class="text-white">Disfrute de nuestra espectacular piscina. Es el lugar perfecto para darse un refrescante baño. Ofrecemos servicio de toallas y un bar cercano para que pueda disfrutar de bebidas y aperitivos mientras se relaja.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-3 my-md-0">
+                        <div class="card bg-transparent border">
+                            <img src="{{url_for('static', filename='imgs/servicio-5.jpg')}}" class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h2 class="pt20 pb20">Sauna</h2>
+                                <p class="text-white">Relájese en nuestro exclusivo sauna, diseñado para ofrecerle una experiencia rejuvenecedora. Con cómodas instalaciones y un ambiente tranquilo, es el lugar perfecto para revitalizar cuerpo y mente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-3 my-md-0">
+                        <div class="card bg-transparent border">
+                            <img src="{{url_for('static', filename='imgs/servicio-6.jpg')}}" class="rounded-0 card-img-top mg-responsive">
+                            <div class="card-body">
+                                <h2 class="pt20 pb20">Gimnasio</h2>
+                                <p class="text-white">Mantenganse en forma en nuestro gimnasio, equipado con máquinas modernas. Un ambiente limpio y espacioso ideal para su rutina de ejercicios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid has-bg-overlay text-center text-light has-height-lg middle-items" id="book-table">
+    <div class="">
+        <br>
+        <h2 class="section-title mb-5">Salón de Eventos</h2>
+        <div class="container-fluid wow fadeIn" data-wow-duration="1.5s">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-8 py-5 my-5s">
+                            <h5>Hotel del Glaciar cuenta con una sala equipada adecuadamente para eventos sociales y empresariales, disponibles tanto para huéspedes del hotel como para empresas y particulares externos.
+                                <br>
+                                Esta instalación se utiliza frecuentemente para charlas, conferencias, seminarios, presentaciones, y eventos sociales como bodas, comuniones, fiestas de quince años, entre otros, con capacidad para hasta 120 personas.</h5>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 has-img-bg6"><a href="{{url_for('static',filename='imgs/salon_de_eventos.jpg')}}"></a></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+</div>
+<div class="container-fluid has-bg-overlay text-light" id="book-table">
+    <br>
+    <div class= "margensalon">El salón se encuentra ubicado en subsuelo, contando con ingreso individual por escalera desde la calle o interno por medio de ascensores y cuenta con:<br> </div>
+    <div class = "margenlista">
+        <p class="text-white">
+            <ul>
+                <li>Toilettes independientes</li>
+                <li>Guardarropas exclusivo en el foyer contiguo.</li>
+                <li>Teléfono con DDI</li>
+                <li>Internet vía Wi-Fi sin cargo</li>
+                <li>Servicios gastronómicos</li>
+            </ul></p>
+        <br>
+    </div>
+</div>
+        </div>
+        <br>
+        <br>
+    <!-- CONTACT Section  -->
+    <div id="contact" class="container-fluid bg-dark text-light border-top wow fadeIn">
+        <div class="row">
+            <div class="col-md-6 px-0">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2299.620952341567!2d-68.3570329!3d-54.8042047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc4c234f68447879%3A0x31f790a6e0c8dd0c!2sLuis%20Fernando%20Martial%202355%2C%20V9410%20Ushuaia%2C%20Tierra%20del%20Fuego!5e0!3m2!1ses!2sar!4v1718408885248!5m2!1ses!2sar" id="map" style="width: 100%; height: 100%; min-height: 400px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-md-6 px-5 has-height-lg middle-items">
+                <h3>ENCUENTRANOS</h3>
+                <p>Ubicado majestuosamente en el corazón de Ushuaia, el Hotel del Glaciar es un refugio de lujo entre las imponentes montañas y los serenos paisajes naturales de la región.</p>
+                <div class="text-muted">
+                    <p><span class="ti-location-pin pr-3"></span>Luis Fernando Martial 2355, V9410 Ushuaia, Tierra del Fuego</p>
+                    <p><span class="ti-support pr-3"></span>02901 42-5329</p>
+                    <p><span class="ti-email pr-3"></span>alojamiento.ids@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}

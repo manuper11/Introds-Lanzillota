@@ -1,0 +1,28 @@
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    env_file:
+      - environment_variables.env
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: flaskdb
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: appMate123
+    ports:
+      - "3307:3306" 
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./db_init:/docker-entrypoint-initdb.d
+
+volumes:
+  mysql-data:

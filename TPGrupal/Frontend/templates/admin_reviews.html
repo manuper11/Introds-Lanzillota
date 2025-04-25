@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block head_title %}Admin Reviews{% endblock %}
+
+{% block links_head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin_reviews.css')}}">
+{% endblock %}
+
+{% block header %}
+<div class="overlay text-white text-center">
+    <h1 class="d-none d-md-block my-5">Administracion de Reviews</h1>
+    <h4 class="d-block d-md-none my-5">Administracion de Reviews</h4>
+    <div class="row text-center">
+        <div class="col-md-6 my-4 mb-md-1">
+            <div class="testmonial-card">
+                <h3 class="h5 h-md-3 testmonial-title">Incentiva a tus visitantes</h3>
+                <div class="testmonial-body overlay">
+                    <p class="lead">¡Asegúrate de que tus mensajes motiven a los visitantes a reservar en tu hotel!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 my-4 d-none d-md-block">
+            <div class="testmonial-card">
+                <h3 class="h5 h-md-3 testmonial-title">Mantén la calidad</h3>
+                <div class="testmonial-body overlay">
+                    <p class="lead">Evita mostrar mensajes confusos o malintencionados para mantener la calidad de tus reseñas.</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <a class="btn btn-lg btn-primary mt-5" href="#reviews-panel">COMENZAR</a>
+</div>
+{% endblock %}
+
+{% block body_content %}
+<div class="container-fluid" id="reviews-panel">
+    <div class="bg-dark text-white text-center border-bottom p-3">
+        <h2 class="h4 h-md-3">Panel de reviews</h2>
+    </div>
+    <div class="text-center mt-3">
+        <button class="btn filter-btn" data-filtro="data-estado" data-estado="all">Todas</button>
+        <button class="btn filter-btn" data-filtro="data-estado" data-estado="nueva">Nuevas</button>
+        <button class="btn filter-btn" data-filtro="data-estado" data-estado="favorita">Favoritas</button>
+        <button class="btn filter-btn" data-filtro="data-visible" data-visible="false">Ocultas</button>
+        <button class="btn filter-btn" data-filtro="data-visible" data-visible="true">Visibles</button>
+    </div>
+    <div class="row text-center justify-content-center">
+        <div class="col-md-8">
+            <input type="text" id="search-input" placeholder="Buscar en una review..." class="form-control mb-3">
+            <h5 class="border text-white p-3 bg-dark" id="text-list-review">Todas</h5>
+            <div id="reviews-list" class="list-group">
+                {% for review in reviews %}
+                <div class="list-group-item-dark review-item  {% if review.estado == 'favorita' %}favorite-review{% endif %}" data-id="{{ review.id }}" data-estado="{{ review.estado }}" data-visible="{{ 'true' if review.visible else 'false' }}">
+                    <blockquote class="blockquote mb-4">
+                        <p class="mb-0 review-text">{{ review.texto }}</p>
+                        <footer class="blockquote-footer text-white">{{ review.nombre_autor }}</footer>
+                    </blockquote>
+                    <div class="d-flex flex-column flex-sm-row justify-content-between">
+                        <button class="estado-button btn mark-as-read-btn text-wrap text-sm">
+                            {{ 'Quitar de favoritas' if review.estado == 'favorita' else ('Marcar como leída' if review.estado == 'nueva' else 'Marcar como favorita') }}
+                        </button>
+                        <button class="visibility-button btn {{ 'btn-danger' if review.visible else 'btn-success' }} text-wrap text-sm">
+                            {{ 'Ocultar' if review.visible else 'Mostrar' }}
+                        </button>
+                        <button class="delete-button btn btn-danger {{ 'd-none' if review.estado == 'favorita' or review.visible or review.estado == 'nueva' else 'd-block' }} text-wrap text-sm">
+                            Borrar para siempre
+                        </button>                        
+                    </div>                    
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <nav>
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="#" id="prev-page">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="next-page">Next</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script type="module" src="{{ url_for('static', filename='js/reviews_admin.js') }}"></script>
+{% endblock %}

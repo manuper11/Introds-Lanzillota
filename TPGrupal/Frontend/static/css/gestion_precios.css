@@ -1,0 +1,111 @@
+/* gestion_precios.css */
+
+.custom-navbar {
+    min-height: 90px;
+}
+
+.header {
+    height: 10px; 
+    max-height: 100px; 
+    min-height: 100px;
+}
+
+body {
+    height: 100vh;
+    background: url(../imgs/main.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 600px;
+}
+
+.panel-header {
+    background-color: #1a2535; 
+    color: #ffffff; 
+    padding: 10px;
+    margin-bottom: 0px;
+    border-radius: 7px;
+}
+
+.title {
+    color: #1a2535;
+}
+
+.container-custom {
+    background-color: #dedcdc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.table thead th:nth-child(1) {
+    width: 25%; 
+}
+
+.table thead th:nth-child(2) {
+    width: 40%; 
+}
+
+.table thead th:nth-child(3) {
+    width: 8%; 
+}
+
+.table thead th:nth-child(4) {
+    width: 27%; 
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: rgb(86, 110, 136); 
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgb(50, 71, 88);
+}
+
+.table-hover tbody tr:hover {
+    background-color: #1a2535; 
+    color: #ffffff; 
+}
+
+.table thead th {
+    background-color: #1a2535;
+    color: #ffffff;
+}
+
+.table-bordered,
+.table-bordered th,
+.table-bordered td {
+    border-color: #1a2535; 
+}
+
+.modal-title-custom {
+    color: #1a2535; 
+}
+
+.modal-content {
+    background-color: #f8f9fa; 
+    color: #1a2535; 
+    box-shadow: 0 0 10px #000000;
+}
+
+.modal-footer button {
+    color: #ffffff; 
+    background-color: #007bff; 
+    border-color: #007bff; 
+}
+
+.modal-footer button:hover {
+    background-color: #0056b3; 
+    border-color: #0056b3; 
+}
+
+.modal-body input[type="text"] {
+    background-color: #f0f0f0;
+    color: #343a40;
+    border-color: #ced4da; 
+}
+
+.error-message {
+    color: #f00; 
+}  
+
+.container-fluid.bg-dark.text-light.has-height-md.middle-items.border-top.text-center.wow.fadeIn {
+    display: none;
+}
